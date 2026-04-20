@@ -53,7 +53,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 // Simple Form Submission with Firebase
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('#appointment-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
