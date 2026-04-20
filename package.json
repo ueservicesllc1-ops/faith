@@ -5,13 +5,10 @@
   "main": "index.html",
   "scripts": {
     "dev": "vite --port 3000",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "serve dist -s -p $PORT"
+    "start": "serve . -s -p $PORT"
   },
   "dependencies": {
     "firebase": "^12.12.0",
-    "vite": "latest",
     "serve": "latest"
   }
 }
