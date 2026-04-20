@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrativo | Faithlife Cleaning</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="assets/logo.png" alt="Faithlife Logo" class="login-logo">
+                <h2>Panel Administrativo</h2>
+                <div class="divider-gold"></div>
+            </div>
+
+            
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="admin@faithlife.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-metallic full-width">Iniciar Sesión</button>
+            </form>
+            
+            <div class="divider">
+                <span>o continuar con</span>
+            </div>
+            
+            <button id="google-login" class="btn-google">
+                <img src="https://www.gstatic.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google">
+                Acceder con Google
+            </button>
+
+
+            <div id="login-error" class="error-msg"></div>
+            
+            <div class="login-footer">
+                <a href="index.html">← Volver al sitio principal</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="login.js"></script>
+</body>
+</html>

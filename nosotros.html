@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | Faithlife Cleaning Services</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .inner-page-hero {
+            padding: 150px 0 80px;
+            background: var(--primary-dark);
+            text-align: center;
+            color: white;
+        }
+        .story-section {
+            padding: 80px 0;
+            background: white;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .value-card {
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        .value-card i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Same as index) -->
+    <header class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo">
+                <span class="logo-brand">FAITH<span class="logo-life">LIFE</span></span>
+                <div class="logo-slogan">CLEANING SERVICES</div>
+            </a>
+
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="nosotros.html" class="active">Nosotros</a>
+                <a href="index.html#contacto" class="btn-metallic">Solicitar Cita</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="inner-page-hero">
+        <div class="container reveal">
+            <h1 class="hero-title" style="font-size: 3.5rem;">Nuestra <span class="accent">Historia</span></h1>
+            <p style="max-width: 600px; margin: 2rem auto;">Más que una empresa de limpieza, somos un legado de excelencia y compromiso con su bienestar.</p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container grid" style="grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem;">
+            <div class="reveal">
+                <img src="assets/about.png" alt="Nosotros" style="width: 100%; border-radius: 20px; box-shadow: 20px 20px 60px rgba(0,0,0,0.1);">
+            </div>
+            <div class="reveal">
+                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1.5rem;">Un Compromiso con la Excelencia</h2>
+                <p style="margin-bottom: 1rem; line-height: 1.8;">Founded with the mission to redefine cleaning standards, Faithlife Cleaning Services has spent over a decade perfecting the art of maintaining spaces. We believe that a clean environment is the foundation for a productive and peaceful life.</p>
+                <p style="margin-bottom: 1rem; line-height: 1.8;">Nuestra filosofía se basa en la atención meticulosa al detalle y el uso de técnicas modernas que respetan la integridad de cada superficie. No solo limpiamos; preservamos la elegancia de su hogar o negocio.</p>
+            </div>
+        </div>
+
+        <div class="container reveal">
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="ph ph-shield-check"></i>
+                    <h3>Confianza</h3>
+                    <p>Personal altamente verificado y comprometido con la privacidad de su hogar.</p>
+                </div>
+                <div class="value-card">
+                    <i class="ph ph-sparkle"></i>
+                    <h3>Perfección</h3>
+                    <p>No damos por terminado un trabajo hasta que esté impecable a la vista y al tacto.</p>
+                </div>
+                <div class="value-card">
+                    <i class="ph ph-clock"></i>
+                    <h3>Compromiso</h3>
+                    <p>Entendemos el valor de su tiempo, por eso la puntualidad es nuestro estandarte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo light">
+                        <img src="assets/logo.png" alt="Faithlife Logo" class="footer-logo-img">
+                    </div>
+                    <p style="margin-top: 1rem;">Llevando la elegancia y la limpieza a cada rincón.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="terminos.html">Términos</a>
+                    <a href="privacidad.html">Privacidad</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="ph ph-phone"></i> 914-661-0795</p>
+                    <p><i class="ph ph-envelope"></i> Faithlifecleaningservices@gmail.com</p>
+                    <p><i class="ph ph-map-pin"></i> NY, USA</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Faithlife Cleaning Services. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

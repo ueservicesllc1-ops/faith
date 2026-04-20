@@ -1,0 +1,16 @@
+{
+  "name": "faithlife-cleaning",
+  "version": "1.0.0",
+  "description": "Faithlife Cleaning Services Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "start": "vite --port 3000"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  },
+  "dependencies": {
+    "firebase": "^12.12.0"
+  }
+}

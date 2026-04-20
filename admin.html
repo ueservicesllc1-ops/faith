@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo | Faithlife Cleaning</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-text">FAITHLIFE</div>
+                <div class="logo-subtext">ADMIN PANEL</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="mensajes">
+                    <i class="ph ph-envelope"></i> Mensajes
+                </a>
+                <a href="#" class="nav-item" data-section="usuarios">
+                    <i class="ph ph-users"></i> Usuarios
+                </a>
+                <a href="#" class="nav-item" data-section="citas">
+                    <i class="ph ph-calendar"></i> Citas
+                </a>
+                <a href="#" class="nav-item" data-section="trabajos">
+                    <i class="ph ph-briefcase"></i> Trabajos
+                </a>
+                <a href="#" class="nav-item" data-section="empleados">
+                    <i class="ph ph-person-arms-spread"></i> Empleados
+                </a>
+                <a href="#" class="nav-item" data-section="contabilidad">
+                    <i class="ph ph-chart-line-up"></i> Contabilidad
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" id="logout-btn" class="btn-back" style="color: #fda4af; margin-bottom: 1rem;">
+                    <i class="ph ph-sign-out"></i> Cerrar Sesión
+                </a>
+                <a href="index.html" class="btn-back">
+                    <i class="ph ph-arrow-left"></i> Volver al Sitio
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="section-title">Mensajes</h1>
+                <div class="admin-profile">
+                    <span>Administrador</span>
+                    <div class="avatar"><i class="ph ph-user-circle"></i></div>
+                </div>
+            </header>
+
+            <section id="content-area">
+                <!-- Content will be injected here via JavaScript -->
+                <div class="loading-state">
+                    <i class="ph ph-circle-notch ph-spin"></i> Cargando datos...
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Chart.js for accounting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
