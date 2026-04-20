@@ -1,6 +1,6 @@
 import { db, auth } from './firebase.js';
-import { collection, query, orderBy, onSnapshot, addDoc, doc, setDoc, serverTimestamp, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { collection, query, orderBy, onSnapshot, addDoc, doc, setDoc, serverTimestamp, deleteDoc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 // Auth Guard & Auto-Register
 onAuthStateChanged(auth, async (user) => {
