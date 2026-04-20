@@ -5,12 +5,10 @@
   "main": "index.html",
   "scripts": {
     "dev": "vite --port 3000",
-    "start": "vite --port 3000"
-  },
-  "devDependencies": {
-    "vite": "latest"
+    "start": "vite --host 0.0.0.0 --port $PORT"
   },
   "dependencies": {
-    "firebase": "^12.12.0"
+    "firebase": "^12.12.0",
+    "vite": "latest"
   }
 }
