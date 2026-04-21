@@ -1,7 +1,7 @@
 import { db, auth } from './firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, doc, setDoc, serverTimestamp, deleteDoc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { S3Client, ListObjectsV2Command, PutObjectCommand, DeleteObjectCommand } from "https://cdn.jsdelivr.net/npm/@aws-sdk/client-s3@3.451.0/+esm";
+import { S3Client, ListObjectsV2Command, PutObjectCommand, DeleteObjectCommand } from "https://esm.sh/@aws-sdk/client-s3?bundle";
 
 // Backblaze B2 Configuration
 const B2_CONFIG = {
