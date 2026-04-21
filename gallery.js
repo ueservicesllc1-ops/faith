@@ -1,4 +1,4 @@
-import { S3Client, ListObjectsV2Command } from "https://cdn.skypack.dev/@aws-sdk/client-s3";
+import { S3Client, ListObjectsV2Command } from "https://cdn.jsdelivr.net/npm/@aws-sdk/client-s3@3.451.0/+esm";
 
 // Backblaze B2 Configuration
 const B2_CONFIG = {
