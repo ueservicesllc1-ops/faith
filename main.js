@@ -1,16 +1,32 @@
 import { db, auth } from './firebase.js';
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 // Show logged-in user in navbar
 onAuthStateChanged(auth, (user) => {
     const badge = document.getElementById('user-badge');
     const photo = document.getElementById('user-photo');
     const nameEl = document.getElementById('user-name');
+    const navLoginBtn = document.querySelector('.nav-login');
+    
     if (user && badge) {
         nameEl.innerText = user.displayName || user.email.split('@')[0];
         photo.src = user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName || user.email) + '&background=1b3b5f&color=fff';
         badge.style.display = 'flex';
+        if (navLoginBtn) navLoginBtn.style.display = 'none'; // Hide login button
+        
+        // Setup logout button
+        const logoutBtn = document.getElementById('logout-btn-nav');
+        if (logoutBtn) {
+            logoutBtn.onclick = () => {
+                signOut(auth).then(() => {
+                    window.location.reload();
+                });
+            };
+        }
+    } else if (badge) {
+        badge.style.display = 'none';
+        if (navLoginBtn) navLoginBtn.style.display = 'inline-block';
     }
 });
 
