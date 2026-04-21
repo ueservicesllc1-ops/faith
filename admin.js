@@ -396,8 +396,7 @@ const renderContabilidadSection = async () => {
 
 // --- Gallery Management ---
 const renderGaleriaSection = async () => {
-    const listContainer = document.getElementById('list-container');
-    listContainer.innerHTML = `
+    contentArea.innerHTML = `
         <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                 <h2 style="font-size: 1.5rem; font-weight: 700; color: #1e293b;">🖼️ Gestión de Galería</h2>
