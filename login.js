@@ -9,7 +9,7 @@ const errorMsg = document.getElementById('login-error');
 // Redirect if already logged in
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = 'admin.html';
+        window.location.href = 'index.html';
     }
 });
 
@@ -20,9 +20,9 @@ const saveUserToFirestore = async (user) => {
         nombre: user.displayName || user.email.split('@')[0],
         email: user.email,
         foto: user.photoURL || '',
-        rol: 'Admin',
+        rol: 'Cliente', // Default role is now client
         lastLogin: serverTimestamp(),
-        createdAt: serverTimestamp() // setDoc with merge would be better but this is simple
+        createdAt: serverTimestamp()
     }, { merge: true });
 };
 
@@ -38,7 +38,7 @@ if (loginForm) {
         try {
             const result = await signInWithEmailAndPassword(auth, email, password);
             await saveUserToFirestore(result.user);
-            window.location.href = 'admin.html';
+            window.location.href = 'index.html';
         } catch (error) {
             console.error(error);
             errorMsg.innerText = 'Email o contraseña incorrectos.';
@@ -53,11 +53,10 @@ if (googleBtn) {
         try {
             const result = await signInWithPopup(auth, googleProvider);
             await saveUserToFirestore(result.user);
-            window.location.href = 'admin.html';
+            window.location.href = 'index.html';
         } catch (error) {
             console.error(error);
             errorMsg.innerText = 'Error al acceder con Google.';
         }
     });
-}
 
