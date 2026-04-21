@@ -23,6 +23,8 @@ async function loadGallery() {
     
     if (!galleryGrid && !previewGrid) return;
 
+    setupLightbox();
+
     try {
         const command = new ListObjectsV2Command({
             Bucket: B2_CONFIG.bucketName,
@@ -65,14 +67,39 @@ function renderGrid(container, files) {
     files.forEach(file => {
         const imgUrl = `${B2_CONFIG.endpoint}/${B2_CONFIG.bucketName}/${file.Key}`;
         const item = document.createElement('div');
-        item.className = 'gallery-item reveal';
+        item.className = 'gallery-item';
         item.innerHTML = `
-            <img src="${imgUrl}" alt="${file.Key}" loading="lazy">
-            <div class="gallery-overlay">
-                <span>${file.Key.split('/').pop()}</span>
+            <img src="${imgUrl}" alt="Gallery Photo" loading="lazy">
+            <div class="gallery-overlay" style="justify-content: center; align-items: center;">
+                <i class="ph ph-magnifying-glass-plus" style="color: white; font-size: 2.5rem;"></i>
             </div>
         `;
+        item.onclick = () => {
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            modalImg.src = imgUrl;
+            modal.classList.add('active');
+        };
         container.appendChild(item);
+    });
+}
+
+function setupLightbox() {
+    if (document.getElementById('lightbox-modal')) return;
+    const modal = document.createElement('div');
+    modal.id = 'lightbox-modal';
+    modal.className = 'lightbox';
+    modal.innerHTML = `
+        <button class="lightbox-close"><i class="ph ph-x"></i></button>
+        <img id="lightbox-img" src="" alt="Foto Ampliada">
+    `;
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (e) => {
+        // Cierra si hace clic en el fondo o la X, pero no si hace clic en la foto misma
+        if (e.target !== document.getElementById('lightbox-img')) {
+            modal.classList.remove('active');
+        }
     });
 }
 

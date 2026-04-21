@@ -478,10 +478,11 @@ const renderGaleriaSection = async () => {
         const fileName = `gallery_${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
         
         try {
+            const buffer = new Uint8Array(await file.arrayBuffer());
             await s3Client.send(new PutObjectCommand({
                 Bucket: B2_CONFIG.bucketName,
                 Key: fileName,
-                Body: file,
+                Body: buffer,
                 ContentType: file.type
             }));
             fetchPhotos();

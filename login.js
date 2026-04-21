@@ -59,4 +59,4 @@ if (googleBtn) {
             errorMsg.innerText = 'Error al acceder con Google.';
         }
     });
-
+}
