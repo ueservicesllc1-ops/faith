@@ -44,31 +44,6 @@ const navItems = document.querySelectorAll('.nav-item');
 const inputStyle = `style="width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-top: 6px; box-sizing: border-box; outline: none; transition: border-color 0.2s;"`;
 const labelStyle = `style="color: #334155; font-weight: 600; font-size: 0.9rem; display: block; margin-left: 4px;"`;
 
-const renderSection = (section) => {
-    sectionTitle.innerText = section.charAt(0).toUpperCase() + section.slice(1);
-    navItems.forEach(item => item.classList.toggle('active', item.dataset.section === section));
-    
-    if (section === 'citas') {
-        renderCitasSection();
-    } else if (section === 'contabilidad') {
-        renderContabilidadSection();
-    } else {
-        switch (section) {
-            case 'mensajes': 
-                renderDataList('solicitudes', ['Fecha', 'Cliente', 'Email', 'Servicio', 'Estado']); 
-                break;
-            case 'usuarios': 
-                renderDataList('usuarios', ['Nombre', 'Email', 'Rol', 'Último Acceso']); 
-                break;
-            case 'trabajos': 
-                renderDataList('trabajos', ['Cliente', 'Monto', 'Fecha', 'Estatus']); 
-                break;
-            case 'empleados': 
-                renderDataList('empleados', ['Nombre', 'Cargo', '$/Hora', 'Teléfono', 'Estatus']); 
-                break;
-        }
-    }
-};
 
 // --- Modals Logic ---
 const openCitaModal = () => {
