@@ -1,4 +1,4 @@
-import { S3Client, ListObjectsV2Command } from "https://esm.sh/@aws-sdk/client-s3?bundle";
+import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 
 // Backblaze B2 Configuration
 const B2_CONFIG = {
