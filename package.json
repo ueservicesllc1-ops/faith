@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
-    "start": "serve dist -s -p $PORT"
+    "start": "serve dist -p $PORT"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1033.0",
