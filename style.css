@@ -175,7 +175,7 @@ h1, h2, h3, h4 {
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -215,7 +215,7 @@ h1, h2, h3, h4 {
 .btn-metallic {
     background: var(--metallic-silver);
     color: var(--primary-dark) !important;
-    padding: 0.8rem 2rem;
+    padding: 0.7rem 1.5rem;
     border-radius: 4px;
     font-weight: 600;
     font-size: 0.85rem;
@@ -224,6 +224,7 @@ h1, h2, h3, h4 {
     border: 1px solid #9ca3af;
     box-shadow: var(--metallic-shadow);
     display: inline-block;
+    white-space: nowrap;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     text-decoration: none;
