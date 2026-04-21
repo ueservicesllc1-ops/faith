@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Completa | Faithlife Cleaning Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-gray">
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-brand"><span>FAITH</span><span class="logo-life">LIFE</span></span>
+                <span class="logo-slogan">Cleaning Services</span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#nosotros">Nosotros</a>
+                <a href="#" class="active">Galería</a>
+                <a href="login.html" class="nav-login">Acceder</a>
+                <a href="index.html#contacto" class="btn-metallic">Solicitar Cita</a>
+            </nav>
+            <div id="user-badge" style="display:none; align-items:center; gap:10px; margin-left:1.5rem;">
+                <img id="user-photo" src="" alt="foto" style="width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,255,255,0.4); object-fit:cover;">
+                <span id="user-name" style="color:white; font-size:0.85rem; font-weight:600; max-width:120px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding-top: 150px;">
+        <section class="gallery-full">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestra Galería Completa</h2>
+                    <p>Cada imagen cuenta una historia de limpieza y dedicación.</p>
+                </div>
+                <div id="gallery-grid" class="gallery-grid">
+                    <div class="gallery-loader">
+                        <i class="ph ph-circle-notch ph-spin"></i>
+                        <p>Cargando todas las imágenes...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Faithlife Cleaning Services. Desarrollado por Freedom Labs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="gallery.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

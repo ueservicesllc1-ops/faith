@@ -517,6 +517,127 @@ h1, h2, h3, h4 {
 }
 
 
+/* --- Gallery Section --- */
+.gallery {
+    padding: 10rem 0;
+    background-color: var(--bg-white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    min-height: 300px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    background: var(--bg-gray);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(27, 59, 95, 0.8), transparent);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gallery-loader {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    color: var(--text-light);
+}
+
+.gallery-loader i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.gallery-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    background: var(--bg-gray);
+    border-radius: 15px;
+    border: 2px dashed var(--border-gray);
+}
+
+.gallery-empty i {
+    font-size: 3rem;
+    color: var(--border-gray);
+    margin-bottom: 1rem;
+}
+
+.gallery-empty p {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.gallery-preview {
+    padding: 8rem 0;
+    background-color: var(--bg-gray);
+    text-align: center;
+}
+
+.gallery-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-actions {
+    margin-top: 3rem;
+}
+
+.gallery-full {
+    padding: 4rem 0 10rem;
+}
+
+.bg-gray {
+    background-color: var(--bg-gray) !important;
+}
+
 /* --- Stats Section --- */
 .stats {
     background: var(--primary-blue);

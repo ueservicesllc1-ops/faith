@@ -1,6 +1,24 @@
 import { db, auth } from './firebase.js';
-import { collection, query, orderBy, onSnapshot, addDoc, doc, setDoc, serverTimestamp, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { collection, query, orderBy, onSnapshot, addDoc, doc, setDoc, serverTimestamp, deleteDoc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { S3Client, ListObjectsV2Command, PutObjectCommand, DeleteObjectCommand } from "https://cdn.skypack.dev/@aws-sdk/client-s3";
+
+// Backblaze B2 Configuration
+const B2_CONFIG = {
+    region: "us-east-005",
+    endpoint: "https://s3.us-east-005.backblazeb2.com",
+    credentials: {
+        accessKeyId: "005c2b526be0baa0000000032",
+        secretAccessKey: "K005KJq+jjzp9+PwkqW7YGmoX3uooVY"
+    },
+    bucketName: "SAMPLER"
+};
+
+const s3Client = new S3Client({
+    region: B2_CONFIG.region,
+    endpoint: B2_CONFIG.endpoint,
+    credentials: B2_CONFIG.credentials,
+});
 
 // Auth Guard & Auto-Register
 onAuthStateChanged(auth, async (user) => {
@@ -399,6 +417,137 @@ const renderContabilidadSection = async () => {
         
         html2pdf().from(printContainer).set(opt).save();
     };
+};
+
+// --- Gallery Management ---
+const renderGaleriaSection = async () => {
+    const listContainer = document.getElementById('list-container');
+    listContainer.innerHTML = `
+        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 1.5rem; font-weight: 700; color: #1e293b;">🖼️ Gestión de Galería</h2>
+                <div>
+                    <label for="b2-upload" class="btn-primary" style="cursor: pointer; padding: 10px 20px; font-size: 0.9rem;">
+                        <i class="ph ph-upload-simple"></i> Subir Foto
+                    </label>
+                    <input type="file" id="b2-upload" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            
+            <div id="b2-gallery-list" class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                <p>Cargando archivos de Backblaze...</p>
+            </div>
+        </div>
+    `;
+
+    const fetchPhotos = async () => {
+        const galleryList = document.getElementById('b2-gallery-list');
+        try {
+            const command = new ListObjectsV2Command({ Bucket: B2_CONFIG.bucketName });
+            const response = await s3Client.send(command);
+            const files = (response.Contents || []).filter(f => f.Key.match(/\.(jpg|jpeg|png|gif|webp)$/i));
+            
+            galleryList.innerHTML = '';
+            if (files.length === 0) {
+                galleryList.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 2rem;">No hay fotos en el bucket.</p>';
+                return;
+            }
+
+            files.forEach(file => {
+                const url = `${B2_CONFIG.endpoint}/${B2_CONFIG.bucketName}/${file.Key}`;
+                const card = document.createElement('div');
+                card.style = "position: relative; border-radius: 8px; overflow: hidden; height: 150px; background: #f1f5f9; box-shadow: 0 2px 4px rgba(0,0,0,0.05); group";
+                card.innerHTML = `
+                    <img src="${url}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <button class="delete-photo" data-key="${file.Key}" style="position: absolute; top: 5px; right: 5px; background: rgba(239, 68, 68, 0.9); color: white; border: none; padding: 5px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                        <i class="ph ph-trash" style="font-size: 1.2rem;"></i>
+                    </button>
+                `;
+                galleryList.appendChild(card);
+            });
+
+            // Delete Logic
+            document.querySelectorAll('.delete-photo').forEach(btn => {
+                btn.onclick = async () => {
+                    if (!confirm("¿Seguro que quieres eliminar esta foto?")) return;
+                    btn.innerHTML = '<i class="ph ph-circle-notch ph-spin"></i>';
+                    try {
+                        await s3Client.send(new DeleteObjectCommand({ 
+                            Bucket: B2_CONFIG.bucketName, 
+                            Key: btn.dataset.key 
+                        }));
+                        fetchPhotos();
+                    } catch (err) {
+                        alert("Error al eliminar");
+                        btn.innerHTML = '<i class="ph ph-trash"></i>';
+                    }
+                };
+            });
+
+        } catch (err) {
+            galleryList.innerHTML = '<p style="color: red;">Error al conectar con Backblaze B2.</p>';
+        }
+    };
+
+    fetchPhotos();
+
+    // Upload Logic
+    document.getElementById('b2-upload').onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const btnLabel = document.querySelector('label[for="b2-upload"]');
+        const originalHtml = btnLabel.innerHTML;
+        btnLabel.innerHTML = '<i class="ph ph-circle-notch ph-spin"></i> Subiendo...';
+        btnLabel.style.opacity = '0.7';
+
+        const fileName = `gallery_${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
+        
+        try {
+            await s3Client.send(new PutObjectCommand({
+                Bucket: B2_CONFIG.bucketName,
+                Key: fileName,
+                Body: file,
+                ContentType: file.type
+            }));
+            fetchPhotos();
+        } catch (err) {
+            console.error(err);
+            alert("Error al subir archivo");
+        } finally {
+            btnLabel.innerHTML = originalHtml;
+            btnLabel.style.opacity = '1';
+        }
+    };
+};
+
+// Update navigation mapping
+const renderSection = async (section) => {
+    sectionTitle.innerText = section.charAt(0).toUpperCase() + section.slice(1);
+    navItems.forEach(item => item.classList.toggle('active', item.dataset.section === section));
+    
+    if (section === 'citas') {
+        renderCitasSection();
+    } else if (section === 'contabilidad') {
+        renderContabilidadSection();
+    } else if (section === 'galeria') {
+        renderGaleriaSection();
+    } else {
+        switch (section) {
+            case 'mensajes': 
+                renderDataList('solicitudes', ['Fecha', 'Cliente', 'Email', 'Servicio', 'Estado']); 
+                break;
+            case 'usuarios': 
+                renderDataList('usuarios', ['Nombre', 'Email', 'Rol', 'Último Acceso']); 
+                break;
+            case 'trabajos': 
+                renderDataList('trabajos', ['Cliente', 'Monto', 'Fecha', 'Estatus']); 
+                break;
+            case 'empleados': 
+                renderDataList('empleados', ['Nombre', 'Cargo', '$/Hora', 'Teléfono', 'Estatus']); 
+                break;
+        }
+    }
 };
 
 navItems.forEach(item => item.onclick = () => renderSection(item.dataset.section));
