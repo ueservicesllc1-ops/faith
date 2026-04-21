@@ -4,29 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faithlife Cleaning Services | Professional Cleaning for Home & Office</title>
-    
-    <!-- Meta Tags for SEO -->
     <meta name="description" content="Professional cleaning services for residential and commercial spaces. High quality standards, reliability, and affordable prices.">
-    <meta name="keywords" content="cleaning services, home cleaning, office cleaning, professional cleaners, maintenance">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Theme CSS -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
+
     <!-- Navbar -->
     <header class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <span class="logo-main">FAITHLIFE</span>
-                <span class="logo-sub">Cleaning Services</span>
+                <span class="logo-brand"><span>FAITH</span><span class="logo-life">LIFE</span></span>
+                <span class="logo-slogan">Cleaning Services</span>
             </div>
             <nav class="nav-links">
                 <a href="#inicio" class="active">Inicio</a>
@@ -35,6 +30,10 @@
                 <a href="login.html" class="nav-login">Acceder</a>
                 <a href="#contacto" class="btn-metallic">Solicitar Cita</a>
             </nav>
+            <div id="user-badge" style="display:none; align-items:center; gap:10px; margin-left:1.5rem;">
+                <img id="user-photo" src="" alt="foto" style="width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,255,255,0.4); object-fit:cover;">
+                <span id="user-name" style="color:white; font-size:0.85rem; font-weight:600; max-width:120px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></span>
+            </div>
             <button class="mobile-menu-btn">
                 <i class="ph ph-list"></i>
             </button>
@@ -44,29 +43,48 @@
     <main>
         <!-- Hero Section -->
         <section id="inicio" class="hero">
+            <!-- Background photo with overlay -->
+            <img src="assets/hero.png" alt="Cleaning Background" class="hero-bg">
             <div class="hero-overlay"></div>
+
             <div class="container hero-container">
-                <div class="hero-content">
-                    <span class="hero-badge">Puntualidad • Calidad • Confianza</span>
-                    <h1>Excelencia en <span class="highlight">Limpieza</span> para tu Hogar y Negocio</h1>
-                    <p>Transformamos tus espacios en lugares impecables, saludables y acogedores con técnicas profesionales y atención personalizada.</p>
+                <!-- Left: Text + Logo -->
+                <div class="hero-left">
+                    <div class="hero-logo-box">
+                        <img src="assets/logo.png" alt="Faithlife Logo" class="hero-logo">
+                    </div>
+                    <h1 class="hero-title">Limpieza Profesional en <span class="accent">Cada Rincón</span></h1>
+                    <p class="hero-subtitle">Deja tu hogar o negocio en manos expertas y disfruta espacios realmente impecables.</p>
                     <div class="hero-actions">
-                        <a href="#contacto" class="btn-primary">Agendar Ahora</a>
-                        <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+                        <a href="#servicios" class="btn-metallic">Ver Servicios</a>
+                        <a href="#contacto" class="btn-outline">Contáctanos</a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <!-- Image will be rendered here -->
-                    <div class="visual-card">
-                        <img src="assets/hero.png" alt="Limpieza Profesional">
-                        <div class="stats-card">
-                            <i class="ph ph-sparkle"></i>
-                            <span>100% Satisfacción</span>
-                        </div>
-                    </div>
+
+                <!-- Right: Staff / Model Photo -->
+                <div>
+                    <img src="public/ella.png" alt="Staff Faithlife" class="staff-photo">
                 </div>
             </div>
         </section>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="container grid">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+                <div class="stat-item border-x">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Clientes Felices</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Garantía de Brillo</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Services Section -->
         <section id="servicios" class="services">
@@ -75,7 +93,6 @@
                     <h2>Servicios Especializados</h2>
                     <p>Ofrecemos soluciones integrales de limpieza adaptadas a cada necesidad.</p>
                 </div>
-                
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="ph ph-house-line"></i></div>
@@ -122,9 +139,9 @@
                     <h2>¿Listo para ver tu espacio brillar?</h2>
                     <p>Déjanos tus datos y nos pondremos en contacto contigo en menos de 24 horas.</p>
                     <div class="contact-details">
-                        <div class="detail"><i class="ph ph-phone"></i> <span>+1 (555) 123-4567</span></div>
-                        <div class="detail"><i class="ph ph-envelope"></i> <span>info@faithlifecleaning.com</span></div>
-                        <div class="detail"><i class="ph ph-map-pin"></i> <span>Miami, FL, USA</span></div>
+                        <div class="detail"><i class="ph ph-phone"></i> <span>(914) 661-0795</span></div>
+                        <div class="detail"><i class="ph ph-envelope"></i> <span>Faithlifecleaningservices@gmail.com</span></div>
+                        <div class="detail"><i class="ph ph-map-pin"></i> <span>New York, NY - USA</span></div>
                     </div>
                 </div>
                 <div class="contact-form-wrapper">
@@ -163,9 +180,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-main">FAITHLIFE</span>
-                    </div>
+                    <img src="assets/logo.png" alt="Faithlife" class="footer-logo-img">
                     <p>Servicios de limpieza premium con fe en la excelencia.</p>
                 </div>
                 <div class="footer-links">
@@ -187,7 +202,6 @@
         </div>
     </footer>
 
-    <!-- Firebase Scripts -->
     <script type="module" src="main.js"></script>
 </body>
 </html>

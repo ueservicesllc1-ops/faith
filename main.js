@@ -1,5 +1,19 @@
-import { db } from './firebase.js';
+import { db, auth } from './firebase.js';
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+// Show logged-in user in navbar
+onAuthStateChanged(auth, (user) => {
+    const badge = document.getElementById('user-badge');
+    const photo = document.getElementById('user-photo');
+    const nameEl = document.getElementById('user-name');
+    if (user && badge) {
+        nameEl.innerText = user.displayName || user.email.split('@')[0];
+        photo.src = user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName || user.email) + '&background=1b3b5f&color=fff';
+        badge.style.display = 'flex';
+    }
+});
+
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -53,7 +67,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 // Simple Form Submission with Firebase
-const contactForm = document.querySelector('#appointment-form');
+const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
