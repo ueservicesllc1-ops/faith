@@ -27,13 +27,18 @@
                 <span class="logo-slogan">Cleaning Services</span>
             </div>
             <nav class="nav-links">
-                <a href="#inicio" class="active">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#galeria">Galería</a>
-                <a href="login.html" class="nav-login">Acceder</a>
-                <a href="#contacto" class="btn-metallic">Solicitar Cita</a>
+                <a href="#inicio" class="active" data-i18n="nav.home">Inicio</a>
+                <a href="#servicios" data-i18n="nav.services">Servicios</a>
+                <a href="#nosotros" data-i18n="nav.about">Nosotros</a>
+                <a href="#galeria" data-i18n="nav.gallery">Galeria</a>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Acceder</a>
+                <a href="#contacto" class="btn-metallic" data-i18n="nav.appointment">Solicitar Cita</a>
             </nav>
+            <button id="lang-switch" class="lang-switch" type="button" aria-label="Cambiar idioma" title="Cambiar idioma">
+                <span>ES</span>
+                <span class="lang-switch-knob"></span>
+                <span>EN</span>
+            </button>
             <div id="user-badge" style="display:none; align-items:center; gap:10px; margin-left:1.5rem;">
                 <img id="user-photo" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23cbd5e1'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/></svg>" alt="foto" style="width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,255,255,0.4); object-fit:cover; cursor:pointer;" onclick="window.location.href='dashboard.html'" title="Ir a mi Dashboard">
                 <span id="user-name" style="color:white; font-size:0.85rem; font-weight:600; max-width:100px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; cursor:pointer;" onclick="window.location.href='dashboard.html'" title="Ir a mi Dashboard"></span>
@@ -60,11 +65,11 @@
                     <div class="hero-logo-box">
                         <img src="assets/logo.png" alt="Faithlife Logo" class="hero-logo">
                     </div>
-                    <h1 class="hero-title">Limpieza Profesional en <span class="accent">Cada Rincón</span></h1>
-                    <p class="hero-subtitle">Deja tu hogar o negocio en manos expertas y disfruta espacios realmente impecables.</p>
+                    <h1 class="hero-title" data-i18n-html="hero.title">Limpieza Profesional en <span class="accent">Cada Rincon</span></h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Deja tu hogar o negocio en manos expertas y disfruta espacios realmente impecables.</p>
                     <div class="hero-actions">
-                        <a href="#servicios" class="btn-metallic">Ver Servicios</a>
-                        <a href="#contacto" class="btn-outline">Contáctanos</a>
+                        <a href="#servicios" class="btn-metallic" data-i18n="hero.viewServices">Ver Servicios</a>
+                        <a href="#contacto" class="btn-outline" data-i18n="hero.contact">Contactanos</a>
                     </div>
                 </div>
 
@@ -80,15 +85,15 @@
             <div class="container grid">
                 <div class="stat-item">
                     <span class="stat-number">10+</span>
-                    <span class="stat-label">Años de Experiencia</span>
+                    <span class="stat-label" data-i18n="stats.years">Anos de Experiencia</span>
                 </div>
                 <div class="stat-item border-x">
                     <span class="stat-number">500+</span>
-                    <span class="stat-label">Clientes Felices</span>
+                    <span class="stat-label" data-i18n="stats.clients">Clientes Felices</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">100%</span>
-                    <span class="stat-label">Garantía de Brillo</span>
+                    <span class="stat-label" data-i18n="stats.guarantee">Garantia de Brillo</span>
                 </div>
             </div>
         </div>
@@ -97,24 +102,24 @@
         <section id="servicios" class="services">
             <div class="container">
                 <div class="section-header">
-                    <h2>Servicios Especializados</h2>
-                    <p>Ofrecemos soluciones integrales de limpieza adaptadas a cada necesidad.</p>
+                    <h2 data-i18n="services.title">Servicios Especializados</h2>
+                    <p data-i18n="services.subtitle">Ofrecemos soluciones integrales de limpieza adaptadas a cada necesidad.</p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="ph ph-house-line"></i></div>
-                        <h3>Limpieza Residencial</h3>
-                        <p>Planes personalizados para mantener tu hogar siempre impecable y libre de alérgenos.</p>
+                        <h3 data-i18n="services.residential.title">Limpieza Residencial</h3>
+                        <p data-i18n="services.residential.desc">Planes personalizados para mantener tu hogar siempre impecable y libre de alergenos.</p>
                     </div>
                     <div class="service-card destacada">
                         <div class="service-icon"><i class="ph ph-buildings"></i></div>
-                        <h3>Limpieza Comercial</h3>
-                        <p>Mantenimiento especializado para oficinas y locales comerciales que proyectan profesionalismo.</p>
+                        <h3 data-i18n="services.commercial.title">Limpieza Comercial</h3>
+                        <p data-i18n="services.commercial.desc">Mantenimiento especializado para oficinas y locales comerciales que proyectan profesionalismo.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon"><i class="ph ph-mop"></i></div>
                         <h3>Deep Cleaning</h3>
-                        <p>Servicios de limpieza profunda para mudanzas (move in/out) o renovaciones estacionales.</p>
+                        <p data-i18n="services.deep.desc">Servicios de limpieza profunda para mudanzas (move in/out) o renovaciones estacionales.</p>
                     </div>
                 </div>
             </div>
@@ -127,14 +132,14 @@
                     <img src="assets/about.png" alt="Nuestro Equipo">
                 </div>
                 <div class="about-content">
-                    <h2>Comprometidos con la Perfección</h2>
-                    <p>En Faithlife Cleaning Services, no solo limpiamos superficies; creamos ambientes donde la vida y el trabajo fluyen con armonía.</p>
+                    <h2 data-i18n="about.title">Comprometidos con la Perfeccion</h2>
+                    <p data-i18n="about.desc">En Faithlife Cleaning Services, no solo limpiamos superficies; creamos ambientes donde la vida y el trabajo fluyen con armonia.</p>
                     <ul class="features">
-                        <li><i class="ph ph-check-circle"></i> Personal calificado y confiable</li>
-                        <li><i class="ph ph-check-circle"></i> Productos eco-friendly de alta gama</li>
-                        <li><i class="ph ph-check-circle"></i> Flexibilidad total de horarios</li>
+                        <li><i class="ph ph-check-circle"></i> <span data-i18n="about.feature1">Personal calificado y confiable</span></li>
+                        <li><i class="ph ph-check-circle"></i> <span data-i18n="about.feature2">Productos eco-friendly de alta gama</span></li>
+                        <li><i class="ph ph-check-circle"></i> <span data-i18n="about.feature3">Flexibilidad total de horarios</span></li>
                     </ul>
-                    <a href="#contacto" class="btn-outline">Conócenos más</a>
+                    <a href="#contacto" class="btn-outline" data-i18n="about.more">Conocenos mas</a>
                 </div>
             </div>
         </section>
@@ -143,8 +148,8 @@
         <section id="galeria" class="gallery-preview">
             <div class="container">
                 <div class="section-header">
-                    <h2>Galería de Excelencia</h2>
-                    <p>Una muestra de la transformación que Faithlife lleva a cada rincón.</p>
+                    <h2 data-i18n="gallery.title">Galeria de Excelencia</h2>
+                    <p data-i18n="gallery.subtitle">Una muestra de la transformacion que Faithlife lleva a cada rincon.</p>
                 </div>
                 <div id="gallery-preview-grid" class="gallery-preview-grid">
                     <!-- Top 4 photos will be loaded here -->
@@ -153,7 +158,7 @@
                     </div>
                 </div>
                 <div class="gallery-actions">
-                    <a href="galeria.html" class="btn-metallic-lg">Ver Galería Completa</a>
+                    <a href="galeria.html" class="btn-metallic-lg" data-i18n="gallery.viewAll">Ver Galeria Completa</a>
                 </div>
             </div>
         </section>
@@ -162,8 +167,8 @@
         <section id="contacto" class="contact">
             <div class="container contact-container">
                 <div class="contact-info">
-                    <h2>¿Listo para ver tu espacio brillar?</h2>
-                    <p>Déjanos tus datos y nos pondremos en contacto contigo en menos de 24 horas.</p>
+                    <h2 data-i18n="contact.title">Listo para ver tu espacio brillar?</h2>
+                    <p data-i18n="contact.subtitle">Dejanos tus datos y nos pondremos en contacto contigo en menos de 24 horas.</p>
                     <div class="contact-details">
                         <div class="detail"><i class="ph ph-phone"></i> <span>(914) 661-0795</span></div>
                         <div class="detail"><i class="ph ph-envelope"></i> <span>Faithlifecleaningservices@gmail.com</span></div>
@@ -174,28 +179,28 @@
                     <form id="appointment-form" class="appointment-form">
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Nombre</label>
-                                <input type="text" id="nombre" required placeholder="Tu nombre">
+                                <label data-i18n="form.name">Nombre</label>
+                                <input type="text" id="nombre" required placeholder="Tu nombre" data-i18n-placeholder="form.namePlaceholder">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="email" required placeholder="tu@email.com">
+                                <label data-i18n="form.email">Email</label>
+                                <input type="email" id="email" required placeholder="tu@email.com" data-i18n-placeholder="form.emailPlaceholder">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Servicio</label>
+                            <label data-i18n="form.service">Servicio</label>
                             <select id="servicio" required>
-                                <option value="">Selecciona un servicio</option>
-                                <option value="residencial">Limpieza Residencial</option>
-                                <option value="comercial">Limpieza Comercial</option>
+                                <option value="" data-i18n="form.selectService">Selecciona un servicio</option>
+                                <option value="residencial" data-i18n="form.serviceResidential">Limpieza Residencial</option>
+                                <option value="comercial" data-i18n="form.serviceCommercial">Limpieza Comercial</option>
                                 <option value="deep">Deep Cleaning</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Mensaje</label>
-                            <textarea id="mensaje" placeholder="Cuéntanos un poco más sobre lo que necesitas..."></textarea>
+                            <label data-i18n="form.message">Mensaje</label>
+                            <textarea id="mensaje" placeholder="Cuentanos un poco mas sobre lo que necesitas..." data-i18n-placeholder="form.messagePlaceholder"></textarea>
                         </div>
-                        <button type="submit" class="btn-metallic-lg">Solicitar Información</button>
+                        <button type="submit" class="btn-metallic-lg" data-i18n="form.submit">Solicitar Informacion</button>
                     </form>
                 </div>
             </div>
@@ -207,23 +212,23 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="assets/logo.png" alt="Faithlife" class="footer-logo-img">
-                    <p>Servicios de limpieza premium con fe en la excelencia.</p>
+                    <p data-i18n="footer.brandDesc">Servicios de limpieza premium con fe en la excelencia.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Enlaces</h4>
-                    <a href="#inicio">Inicio</a>
-                    <a href="#servicios">Servicios</a>
-                    <a href="#nosotros">Nosotros</a>
+                    <h4 data-i18n="footer.links">Enlaces</h4>
+                    <a href="#inicio" data-i18n="nav.home">Inicio</a>
+                    <a href="#servicios" data-i18n="nav.services">Servicios</a>
+                    <a href="#nosotros" data-i18n="nav.about">Nosotros</a>
                     <a href="login.html">Admin</a>
                 </div>
                 <div class="footer-links">
-                    <h4>Legal</h4>
-                    <a href="privacidad.html">Privacidad</a>
-                    <a href="terminos.html">Términos</a>
+                    <h4 data-i18n="footer.legal">Legal</h4>
+                    <a href="privacidad.html" data-i18n="footer.privacy">Privacidad</a>
+                    <a href="terminos.html" data-i18n="footer.terms">Terminos</a>
                 </div>
             </div>
             <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center;">
-                <p>&copy; 2026 Faithlife Cleaning Services. Desarrollado por Freedom Labs.</p>
+                <p data-i18n="footer.copy">&copy; 2026 Faithlife Cleaning Services. Desarrollado por Freedom Labs.</p>
                 <a href="admin.html" title="Panel de Administración" style="color: var(--metallic-silver); opacity: 0.5; transition: opacity 0.2s;">
                     <i class="ph ph-shield-check" style="font-size: 1.5rem;"></i>
                 </a>
